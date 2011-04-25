@@ -1,4 +1,14 @@
+#include <QtCore>
+#include <QtGui>
+#include <QtNetwork>
+
+#ifndef _POSIX_VERSION
+#include <windows.h>
+#endif
+
 #include "qclient.h"
+#include "qtcpclientconnection.h"
+
 
 QClient::QClient(int &argc, char **argv) :
     QApplication(argc, argv)
@@ -35,7 +45,11 @@ void QClient::connectToServer(const QHostAddress &address, qint64 port)
 void QClient::reconnect(const QAbstractSocket::SocketError &error, const QString &errorString)
 {
     if (error == QAbstractSocket::HostNotFoundError || error == QAbstractSocket::ConnectionRefusedError) {
-        //sleep(5);
+#ifdef _POSIX_VERSION
+        sleep(5);
+#else
+        Sleep(5000);
+#endif
         connectToServer(myAddress, myPort);
     }
 }

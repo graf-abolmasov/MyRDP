@@ -1,11 +1,10 @@
 #ifndef QCLIENT_H
 #define QCLIENT_H
 
-#include <QtCore>
 #include <QApplication>
-#include <QtGui>
-#include <QtNetwork>
-#include "qtcpclientconnection.h"
+#include <QtNetwork/QHostAddress>
+
+class QTcpClientConnection;
 
 class QClient : public QApplication
 {
