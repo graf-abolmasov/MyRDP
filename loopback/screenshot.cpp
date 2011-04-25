@@ -107,15 +107,15 @@ void Screenshot::resizeEvent(QResizeEvent * /* event */)
 
 void Screenshot::createButtonsLayout()
 {
-    startButton = createButton(tr("Start"), this, SLOT(startCapture()));
-    stopButton = createButton(tr("Stop"), this, SLOT(stopCapture()));
-    captureButton = createButton(tr("Capture"), this, SLOT(capture()));
+    startButton = createButton(tr("Старт"), this, SLOT(startCapture()));
+    stopButton = createButton(tr("Стоп"), this, SLOT(stopCapture()));
+    captureButton = createButton(tr("Захват"), this, SLOT(capture()));
 
     intervalSpinBox = new QSpinBox;
-    intervalSpinBox->setSuffix(tr(" s"));
+    intervalSpinBox->setSuffix(tr(" сек"));
     intervalSpinBox->setMinimum(1);
 
-    label = new QLabel(tr("Refresh interval:"));
+    label = new QLabel(tr("Частота обновления:"));
 
     prograssBar = new QProgressBar;
     prograssBar->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -127,7 +127,6 @@ void Screenshot::createButtonsLayout()
     buttonsLayout->addWidget(stopButton);
     buttonsLayout->addWidget(captureButton);
     buttonsLayout->addWidget(prograssBar);
-    //buttonsLayout->addStretch();
 }
 
 QPushButton *Screenshot::createButton(const QString &text, QWidget *receiver,
