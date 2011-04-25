@@ -94,7 +94,9 @@ void QTreeItem::childRecieved(QMap<QString,QVariant> header,QByteArray data)
 
 bool QTreeItem::isChildOf(QTreeItem *parent)
 {
-    return this->myPath.contains(parent->myPath);
+    bool result = (myPath.indexOf(parent->myPath, 0) == 0 && QString(myPath).remove(parent->myPath)[0] == '/');
+    return result;
+    return (myPath.indexOf(parent->myPath, 0) == 0);
 }
 
 /*!
@@ -215,8 +217,10 @@ void QRemoteDirModel::populate(const QModelIndex &index)
 void QRemoteDirModel::populated(QTreeItem *item)
 {
     QModelIndex idx = indexOf(item, QModelIndex());
-    beginInsertRows(idx, 0, item->childCount()-1);
-    endInsertRows();
+    if (item->childCount() > 0) {
+        beginInsertRows(idx, 0, item->childCount()-1);
+        endInsertRows();
+    }
     emit populated(idx);
 }
 
