@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client", "client\client.vcxproj", "{CB4AE866-06FF-3243-A5EC-010A120F5FD3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "loopback", "loopback\loopback.vcxproj", "{E9075915-216E-3E75-98F0-79C6E3BC6002}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB4AE866-06FF-3243-A5EC-010A120F5FD3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CB4AE866-06FF-3243-A5EC-010A120F5FD3}.Debug|Win32.Build.0 = Debug|Win32
+		{CB4AE866-06FF-3243-A5EC-010A120F5FD3}.Release|Win32.ActiveCfg = Release|Win32
+		{CB4AE866-06FF-3243-A5EC-010A120F5FD3}.Release|Win32.Build.0 = Release|Win32
+		{E9075915-216E-3E75-98F0-79C6E3BC6002}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E9075915-216E-3E75-98F0-79C6E3BC6002}.Debug|Win32.Build.0 = Debug|Win32
+		{E9075915-216E-3E75-98F0-79C6E3BC6002}.Release|Win32.ActiveCfg = Release|Win32
+		{E9075915-216E-3E75-98F0-79C6E3BC6002}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
