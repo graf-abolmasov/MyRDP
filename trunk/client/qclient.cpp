@@ -57,14 +57,14 @@ void QClient::reconnect(const QAbstractSocket::SocketError &error, const QString
 void QClient::sayHello()
 {
     QMap<QString, QVariant> header;
-    header["Hello"]=tr("Hello, Buddy!");
+    header["Hello"] = tr("Hello, Buddy!");
     myClientConnection->sendPacket(header, QByteArray());
 }
 
 void QClient::sayGoodBy()
 {
     QMap<QString, QVariant> header;
-    header["Good by"]=tr("I hope to see you, Buddy, again!");
+    header["Good by"] = tr("I hope to see you, Buddy, again!");
     myClientConnection->sendPacket(header, QByteArray());
 }
 
@@ -189,7 +189,13 @@ void QClient::download(const QString &path)
 {
     QMap<QString,QVariant> header;
     QFileInfo fileInfo(path);
-    if (fileInfo.exists() && fileInfo.isFile()){
+    if (!fileInfo.exists()) {
+      header[tr("FileName")] = tr("File not found!");
+      myClientConnection->sendPacket(header, QByteArray());
+      return;
+    }
+
+    if (fileInfo.isFile()) {
         QFile file(path);
         header[tr("FileName")] = fileInfo.fileName();
         file.open(QFile::ReadOnly);
